@@ -12,18 +12,18 @@ package webview
 
 /*
 #cgo linux openbsd freebsd CFLAGS: -DWEBVIEW_GTK=1
+#cgo linux openbsd freebsd CXXFLAGS: -DWEBVIEW_GTK=1
 #cgo linux openbsd freebsd pkg-config: gtk+-3.0 webkit2gtk-4.0
 
 #cgo windows CFLAGS: -DWEBVIEW_WINAPI=1
+#cgo windows CXXFLAGS: -DWEBVIEW_WINAPI=1
 #cgo windows LDFLAGS: -lole32 -lcomctl32 -loleaut32 -luuid -lgdi32
 
-#cgo darwin CFLAGS: -DWEBVIEW_COCOA=1 
+#cgo darwin CFLAGS: -DWEBVIEW_COCOA=1
+#cgo darwin CXXFLAGS: -DWEBVIEW_COCOA=1
 #cgo darwin LDFLAGS: -framework WebKit
 
-#include <stdlib.h>
-#include <stdint.h>
-#define WEBVIEW_STATIC
-#define WEBVIEW_IMPLEMENTATION
+#define WEBVIEW_HEADER
 #include "webview.h"
 
 extern void _webviewExternalInvokeCallback(void *, void *);
