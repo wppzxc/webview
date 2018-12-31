@@ -172,8 +172,11 @@ WEBVIEW_API void webview_exit(struct webview *w);
 WEBVIEW_API void webview_debug(const char *format, ...);
 WEBVIEW_API void webview_print_log(const char *s);
 
-#ifdef WEBVIEW_IMPLEMENTATION
-#undef WEBVIEW_IMPLEMENTATION
+#ifdef __cplusplus
+}
+#endif
+
+#ifndef WEBVIEW_HEADER
 
 WEBVIEW_API int webview(const char *title, const char *url, int width,
                         int height, int resizable) {
@@ -2186,10 +2189,6 @@ WEBVIEW_API void webview_print_log(const char *s) { printf("%s\n", s); }
 
 #endif /* WEBVIEW_COCOA */
 
-#endif /* WEBVIEW_IMPLEMENTATION */
-
-#ifdef __cplusplus
-}
-#endif
+#endif /* WEBVIEW_HEADER */
 
 #endif /* WEBVIEW_H */
